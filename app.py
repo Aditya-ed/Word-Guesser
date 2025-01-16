@@ -2,11 +2,12 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import random
 import pickle
+import os
 import nltk
-nltk.download('omw-1.4')
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
+
+# Add the bundled data folder to NLTK's search path
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
+
 
 
 from nltk.stem import WordNetLemmatizer
