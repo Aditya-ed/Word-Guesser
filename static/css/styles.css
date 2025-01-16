@@ -41,11 +41,12 @@ button:hover {
 }
 
 .guess-item{
-    border:5px solid white;
-    border-radius: 15px;
-    padding: 20px;
+    border:3px solid white;
+    border-radius: 7px;
+    padding: 10px 10px;
     color: white;
     margin: 5px;
+    text-align: center;
 }
 .res{
     padding:50px
@@ -56,6 +57,66 @@ button:hover {
     justify-content: space-between;
 }
 
-.empty1{
-    flex:1
+#empty1{
+    flex:1;
+}
+
+.hint{
+     display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+
+/* Style for the three dots button */
+.dots-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dots-button {
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Style for the options menu */
+.options-menu {
+    display: none;
+    position: absolute;
+    top: 30px; /* Adjust position based on your needs */
+    right: 0;
+    background-color: rgb(28, 35, 61);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 150px;
+    padding: 10px 0;
+    color: white;
+}
+
+.options-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-menu li {
+    padding: 8px 16px;
+}
+
+.options-menu li a {
+    text-decoration: none;
+    color:  white;
+    display: block;
+}
+
+.options-menu li:hover {
+    background-color: rgb(45, 57, 99);
+}
+#currdiv{
+    margin-bottom: 35px;
+    
 }

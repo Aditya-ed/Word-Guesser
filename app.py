@@ -36,12 +36,13 @@ def get_word_of_the_day():
 secret = get_word_of_the_day()
 indexes=find_close(embedding_dict[secret])
 guessed_words=[]
+current_indx=10000
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         print(secret)
         word_input = request.form.get("word")
-           
+        
         if not word_input:
             return jsonify({"status": "error", "message": "No word provided!"})
 
@@ -54,6 +55,7 @@ def index():
              return jsonify({"status":"message","message":"Already guessed!"})
         elif guess == secret:
             guessed_words.append(guess)
+            current_indx=1
             return jsonify({"status": "success", "message": "Correct guess!", "word": guess, "index": 1.0})
         elif guess not in indexes:
             guessed_words.append(guess)
@@ -61,9 +63,23 @@ def index():
             return jsonify({"status": "success","word": guess, "index":float(similarity)})
         else:
             guessed_words.append(guess)
+            #current_indx=min(current_indx,indexes.index(guess)+1)
             return jsonify({"status": "success", "word": guess, "index": indexes.index(guess)+1})
 
-    return render_template("index.html")
+    return render_template("index.html",data=indexes)
+
+# @app.route("/hint", methods=["GET"])
+# def hint():
+#     secret_vec = embedding_dict.get(secret, None)
+    
+#     # Find the most similar word from the embedding_dict
+#     closest_word = None
+#     if(current_indx>1):
+#         closest_word=current_indx//2
+#     if closest_word > 1:
+#         return jsonify({"status": "success", "hint": indexes[closest_word]})
+#     else:
+#         return jsonify({"status": "error", "message": "Closest you can get to the word"})
 
 
 if __name__ == '__main__':

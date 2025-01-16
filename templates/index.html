@@ -8,22 +8,34 @@
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
+    <div id="data-container" data-list='{{ data | tojson }}'></div>
     <div id="main">
-        <div id="empty1">
+        <div id="empty1" class="hint">
             <!-- empty -->
         </div>
         <div id="empty1">
-            <h1>Contexto</h1>
+            <div class="dots-menu">
+                <button class="dots-button">Contexto</button>
+                <div class="options-menu">
+                    <ul>
+                        <li><a href="#" class="help">Hint</a></li>
+                        <li><a href="#" class="giveup">Give Up</a></li>
+                    </ul>
+                </div>
+            </div>
             <form id="word-form" method="POST">
                 <input type="text" name="word" id="guess" placeholder="Enter your guess" required>
-                <button type="submit">Submit</button>
+                <!-- <button type="submit">Submit</button> -->
             </form>
+            <div id="currdiv">
+
+            </div>
             <div id="result">
                 
             </div>
         </div>
-        <div id="empty1">
-            <!-- empty -->
+        <div id="empty1" class="hint">
+            
         </div>
     </div>
     
