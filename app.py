@@ -8,6 +8,10 @@ import datetime
 import numpy as np
 from scipy import spatial
 
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+
 # Initialize Flask app
 app = Flask(__name__)
 
