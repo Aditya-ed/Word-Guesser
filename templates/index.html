@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Similarity Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <div id="main">
+        <div id="empty1">
+            <!-- empty -->
+        </div>
+        <div id="empty1">
+            <h1>Contexto</h1>
+            <form id="word-form" method="POST">
+                <input type="text" name="word" id="guess" placeholder="Enter your guess" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="result">
+                
+            </div>
+        </div>
+        <div id="empty1">
+            <!-- empty -->
+        </div>
+    </div>
+    
+</body>
+</html>

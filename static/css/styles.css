@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/static/fonts/PlaywriteVN-VariableFont_wght.ttf') format('truetype');
+}
+*{
+    font-family: 'CustomFont',sans-serif;
+    font-weight: bold;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+body{
+    background-color: rgb(28, 35, 61);
+    text-align: center;
+}
+/* Style for the input box */
+input[type="text"] {
+    padding: 10px;
+    font-size: 12px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 350px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.guess-item{
+    border:5px solid white;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    margin: 5px;
+}
+.res{
+    padding:50px
+}
+#main{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.empty1{
+    flex:1
+}
