@@ -68,19 +68,6 @@ def index():
 
     return render_template("index.html",data=indexes)
 
-# @app.route("/hint", methods=["GET"])
-# def hint():
-#     secret_vec = embedding_dict.get(secret, None)
-    
-#     # Find the most similar word from the embedding_dict
-#     closest_word = None
-#     if(current_indx>1):
-#         closest_word=current_indx//2
-#     if closest_word > 1:
-#         return jsonify({"status": "success", "hint": indexes[closest_word]})
-#     else:
-#         return jsonify({"status": "error", "message": "Closest you can get to the word"})
-
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
