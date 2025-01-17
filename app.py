@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import random
 import pickle
+import os
 import nltk
 
 nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
