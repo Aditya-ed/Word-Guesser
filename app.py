@@ -3,11 +3,8 @@ import pandas as pd
 import random
 import pickle
 import nltk
-nltk.download('omw-1.4')
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
 
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
 
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
@@ -63,14 +60,13 @@ def index():
         elif guess == secret:
             guessed_words.append(guess)
             current_indx=1
-            return jsonify({"status": "success", "message": "Correct guess!", "word": guess, "index": 1.0})
+            return jsonify({"status": "winner", "message": "Correct guess!", "word": guess, "index": 1.0})
         elif guess not in indexes:
             guessed_words.append(guess)
             similarity = cosine_similarity(embedding_dict[guess], embedding_dict[secret])
             return jsonify({"status": "success","word": guess, "index":float(similarity)})
         else:
             guessed_words.append(guess)
-            #current_indx=min(current_indx,indexes.index(guess)+1)
             return jsonify({"status": "success", "word": guess, "index": indexes.index(guess)+1})
 
     return render_template("index.html",data=indexes)

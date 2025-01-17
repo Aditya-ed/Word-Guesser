@@ -11,7 +11,7 @@ h1{
     color: white;
 }
 body{
-    background-color: rgb(28, 35, 61);
+    background-color: rgb(20, 30, 41);
     text-align: center;
 }
 /* Style for the input box */
@@ -119,4 +119,14 @@ button:hover {
 #currdiv{
     margin-bottom: 35px;
     
+}
+.WinnerDiv{
+    /* border: 4px solid white; */
+    border-radius: 8px;
+    background-color: rgb(38, 47, 57);
+}
+
+.contexto{
+    display: flex;
+    align-content: space-between;
 }

@@ -35,7 +35,8 @@ function loadDivs() {
 
 document.getElementById("word-form").addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    const ip=document.getElementById("guess");
+    ip.disabled=false;
     const form = document.getElementById("word-form");
     const formData = new FormData(form);
     const resultDiv = document.getElementById("result");
@@ -68,6 +69,16 @@ document.getElementById("word-form").addEventListener("submit", async function (
             const clonedDiv = guessDiv.cloneNode(true);
             currDiv.appendChild(clonedDiv);
         } 
+        else if(result.status === "winner")
+        {
+            const winDiv = document.getElementById("win");
+            const Winner = document.createElement("div");
+            Winner.className="WinnerDiv";
+            Winner.innerHTML=`<h1>Congrats You Won!!!</h1>`;
+            winDiv.appendChild(Winner);
+            const ip=document.getElementById("guess");
+            ip.disabled = true;
+        }
         else {
             guessDiv.className = "error-item";
             guessDiv.innerHTML = `<strong>Error:</strong> ${result.message}`;
@@ -161,7 +172,14 @@ function hintFunction() {
 
 
 function giveUpFunction() {
-    alert("Option 2 was clicked!");
+    const winDiv = document.getElementById("win");
+    const Winner = document.createElement("div");
+    Winner.className="WinnerDiv";
+    Winner.innerHTML=`<h1>The word was "<strong>${myList[0]}</strong>"</h1> `;
+    // alert("Option 2 was clicked!");
+    winDiv.appendChild(Winner);
+    const ip=document.getElementById("guess");
+    ip.disabled = true;
 }
 
 document.querySelector('.help').addEventListener('click', hintFunction);
